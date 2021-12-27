@@ -12,10 +12,10 @@ class PhotoList extends Component {
   }
 
   componentDidMount() {
-    this.getAllImages(this.state.page); 
+    this.getAllPhotos(this.state.page); 
   }
 
-  getAllImages(page) {
+  getAllPhotos(page) {
     this.setState({ loading: true });
     axios
       .get(
@@ -40,18 +40,7 @@ class PhotoList extends Component {
   }
 
   filterPhotos(){
-    //   const pattern = this.state.inputFilter;
-    //   console.log(pattern);
-    //   const filteredPhotos = this.state.photos.filter((photo)=>{
-    //     return photo.title.indexOf(pattern) !== -1;
-    //     });
-    //     console.log(filteredPhotos);
-    //   this.setState({ 
-    //       photos : filteredPhotos
-    //   })
-
     const pattern = this.state.pattern;
-
     axios
       .get(
         `https://jsonplaceholder.typicode.com/photos?title_like=${pattern}&_limit=10`
